@@ -6,7 +6,8 @@ Enviroment variables can be use to customize the behavior:
 
 Variable|Usage|Default Value
 ---|---|---
-PALDAP_USER | OS user to be applied at the image | paldap PALDAP_HOME | | /opt/openldap
+PALDAP_USER | OS user to be applied at the image | paldap for application, openldap for ldap files
+PALDAP_HOME | Folder where application resides | /opt/openldap
 PALDAP_DATA | LDAP data folder | ${PALDAP_HOME}/data
 PALDAP_CONFIG | Application configuration data | ${PALDAP_HOME}/config
 PALDAP_LDIF | Location of extra schema/ldif files to be loaded at configuration phase. All files here are applied at configuration time | ${PALDAP_HOME}/ldif
@@ -16,4 +17,3 @@ PALDAP_ADMIN_USER| Administrator user |cn=admin,${PALDAP_DEFAULT_BASE_DN}
 PALDAP_ADMIN_PASSWORD| Administrator password |adminpassword
 PALDAP_LOAD_EXTRA_MODULES| Load extra overlays. By default add the dynamic group with memberof configuration* |dyngroup
 
-* This setup is provisory
