@@ -117,6 +117,7 @@ else
 fi
 
 chown -R openldap.openldap ${PALDAP_DATA}/
+chown -R ${PALDAP_USER}.${PALDAP_USER} ${PALDAP_CONFIGURED_FILE}
 
 echo "LDAP configured"
 

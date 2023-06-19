@@ -16,7 +16,7 @@ RUN apt-get install -y slapd sudo
 WORKDIR ${PALDAP_HOME}
 
 ## Grant some ldap super user actions to app user (least privilege)
-RUN echo "${PALDAP_USER} ALL = NOPASSWD:SETENV: /usr/bin/sudo *, /usr/sbin/service slapd *,  /usr/bin/ldapmodify *, ${PALDAP_HOME}/config.sh, /usr/sbin/slapd, /usr/bin/killall slapd" > /etc/sudoers.d/padl-ldap-sudoers
+RUN echo "${PALDAP_USER} ALL = NOPASSWD:SETENV: /usr/sbin/service slapd *,  /usr/bin/ldapmodify *, ${PALDAP_HOME}/config.sh, /usr/sbin/slapd, /usr/bin/killall slapd" > /etc/sudoers.d/padl-ldap-sudoers
 
 # User configuration
 RUN groupadd ${PALDAP_USER}; useradd -s /bin/bash -m -g ${PALDAP_USER} -G users ${PALDAP_USER}
