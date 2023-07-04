@@ -19,7 +19,10 @@ end_padl_app() {
 
 echo "Staring configuration phase..."
 sudo -E ${PALDAP_HOME}/config.sh
-sudo /usr/bin/killall slapd
+if pgrep slapd
+then
+    sudo /usr/bin/killall slapd
+fi
 echo "Restarting ldap service..."
 sudo /usr/sbin/slapd -h "ldap:/// ldapi:///" -g openldap -u openldap -F /opt/openldap/data -d Stats2
 

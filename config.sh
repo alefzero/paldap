@@ -91,6 +91,16 @@ configureUserConf() {
     done
 }
 
+removeOldLdapFiles() {
+    pushd ${PALDAP_DATA}
+    find . -not -path "." -delete
+    popd    
+}
+
+if [ -f ${PALDAP_CONFIGURED_FILE} ] && grep -q "status=delete" ${PALDAP_CONFIGURED_FILE}
+then
+    removeOldLdapFiles
+fi
 
 echo "Running configuration"
 if [ ! -f ${PALDAP_CONFIGURED_FILE} ]
@@ -101,12 +111,13 @@ then
     changeRootPassword
     configureModules
     configureUserConf
-    touch ${PALDAP_CONFIGURED_FILE}
+    echo "status=configured" >  ${PALDAP_CONFIGURED_FILE}
 else
     echo  "Previous LDAP configuration found."
 fi
 
 chown -R openldap.openldap ${PALDAP_DATA}/
+chown -R ${PALDAP_USER}.${PALDAP_USER} ${PALDAP_CONFIGURED_FILE}
 
 echo "LDAP configured"
 
