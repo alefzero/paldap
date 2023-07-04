@@ -16,4 +16,4 @@ PALDAP_ADMIN_CONFIG_PASSWORD | cn=admin,cn=config password | configadminpassword
 PALDAP_ADMIN_USER| Administrator user |cn=admin,${PALDAP_DEFAULT_BASE_DN}
 PALDAP_ADMIN_PASSWORD| Administrator password |adminpassword
 PALDAP_LOAD_EXTRA_MODULES| Load extra overlays. By default add the dynamic group with memberof configuration* |dyngroup
-
+PALDAP_LOG_LEVEL | Log level for this openldap | filter
