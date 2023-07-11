@@ -10,7 +10,7 @@ export PALDAP_ADMIN_CONFIG_PASSWORD="${PALDAP_ADMIN_CONFIG_PASSWORD:-configadmin
 export PALDAP_ADMIN_USER="${PALDAP_ADMIN_USER:-cn=admin,${PALDAP_DEFAULT_BASE_DN}}"
 export PALDAP_ADMIN_PASSWORD="${PALDAP_ADMIN_PASSWORD:-adminpassword}"
 export PALDAP_LOAD_EXTRA_MODULES="${PALDAP_LOAD_EXTRA_MODULES:dyngroup}"
-export PALDAP_LOG_LEVEL="${PALDAP_LOG_LEVEL:=filter}"
+export PALDAP_LOG_LEVEL="${PALDAP_LOG_LEVEL:=conns}"
 
 end_padl_app() {
     echo "Shutting down ldap..."
