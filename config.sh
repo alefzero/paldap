@@ -62,21 +62,21 @@ configureModules() {
         fi
     done
 
-    cat << EOF | ldapmodify -Y EXTERNAL -H ldapi:/// -a 
-dn: cn=module{0},cn=config
-changetype: modify
-add: olcModuleLoad
-olcModuleLoad: memberof
+#     cat << EOF | ldapmodify -Y EXTERNAL -H ldapi:/// -a 
+# dn: cn=module{0},cn=config
+# changetype: modify
+# add: olcModuleLoad
+# olcModuleLoad: memberof
 
-dn: olcOverlay=memberof,olcDatabase={1}mdb,cn=config
-changetype: add
-objectClass: olcConfig
-objectClass: olcMemberOf
-objectClass: olcOverlayConfig
-objectClass: top
-olcOverlay: memberof
-olcMemberOfRefint: TRUE
-EOF
+# dn: olcOverlay=memberof,olcDatabase={1}mdb,cn=config
+# changetype: add
+# objectClass: olcConfig
+# objectClass: olcMemberOf
+# objectClass: olcOverlayConfig
+# objectClass: top
+# olcOverlay: memberof
+# olcMemberOfRefint: TRUE
+# EOF
 
 }
 
